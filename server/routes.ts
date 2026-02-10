@@ -34,8 +34,8 @@ async function seedDatabase() {
     const leatherSofas = [
       {
         name: "Phantom Leather Sectional",
-        description: "A masterclass in darkness and comfort. Premium top-grain black leather with matte finish.",
-        price: 450000,
+        description: "A masterclass in darkness and comfort. Premium top-grain black leather with matte finish. British craftsmanship at its finest.",
+        price: 350000, // £3,500
         category: "leather",
         image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
         material: "Top-grain Leather",
@@ -43,8 +43,8 @@ async function seedDatabase() {
       },
       {
         name: "Noir Chesterfield",
-        description: "Classic design reimagined in absolute black. Deep button tufting and hand-finished leather.",
-        price: 320000,
+        description: "Classic British design reimagined in absolute black. Deep button tufting and hand-finished leather.",
+        price: 280000, // £2,800
         category: "leather",
         image: "https://images.unsplash.com/photo-1550226891-ef816aed4a98?w=800&q=80",
         material: "Italian Leather",
@@ -52,8 +52,8 @@ async function seedDatabase() {
       },
       {
         name: "Eclipse Recliner",
-        description: "Modern minimalist recliner in midnight black leather.",
-        price: 180000,
+        description: "Modern minimalist recliner in midnight black leather. Designed for the sophisticated London home.",
+        price: 150000, // £1,500
         category: "leather",
         image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&q=80",
         material: "Bonded Leather",
@@ -64,8 +64,8 @@ async function seedDatabase() {
     const fabricSofas = [
       {
         name: "Shadow Velvet Sofa",
-        description: "Plush black velvet sofa that absorbs light and radiates comfort.",
-        price: 280000,
+        description: "Plush black velvet sofa that absorbs light and radiates comfort. Hand-tufted in the UK.",
+        price: 220000, // £2,200
         category: "fabric",
         image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80",
         material: "Premium Velvet",
@@ -73,10 +73,10 @@ async function seedDatabase() {
       },
       {
         name: "Obsidian Modular",
-        description: "Versatile modular fabric sofa system in charcoal black.",
-        price: 350000,
+        description: "Versatile modular fabric sofa system in charcoal black. Perfect for modern urban living.",
+        price: 310000, // £3,100
         category: "fabric",
-        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80", // Reusing for placeholder, ideally different
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
         material: "Woven Fabric",
         isNew: false
       }
