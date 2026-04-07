@@ -9,6 +9,11 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Shop from "@/pages/Shop";
 import ProductDetail from "@/pages/ProductDetail";
+import AdminLogin from "@/pages/AdminLogin";
+import AdminDashboard from "@/pages/AdminDashboard";
+import AdminProductForm from "@/pages/AdminProductForm";
+import AdminSiteContent from "@/pages/AdminSiteContent";
+
 
 function Router() {
   return (
@@ -16,6 +21,11 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/shop" component={Shop} />
       <Route path="/product/:id" component={ProductDetail} />
+      <Route path="/admin" component={AdminLogin} />
+      <Route path="/admin/dashboard" component={AdminDashboard} />
+      <Route path="/admin/products/new" component={AdminProductForm} />
+      <Route path="/admin/products/:id/edit" component={AdminProductForm} />
+      <Route path="/admin/content" component={AdminSiteContent} />
       <Route component={NotFound} />
     </Switch>
   );

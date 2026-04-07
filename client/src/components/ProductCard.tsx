@@ -9,20 +9,20 @@ export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className="group relative"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900 mb-4">
+      <div className="relative aspect-square overflow-hidden bg-zinc-900 mb-4">
         {product.isNew && (
           <span className="absolute top-4 left-4 z-10 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1">
             New Arrival
           </span>
         )}
-        
+
         {/* Main Image */}
         <Link href={`/product/${product.id}`}>
           <img
@@ -31,7 +31,7 @@ export function ProductCard({ product }: { product: Product }) {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </Link>
-        
+
         {/* Quick Add Overlay */}
         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/80 to-transparent">
           <button

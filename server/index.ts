@@ -22,6 +22,9 @@ app.use(
 
 app.use(express.urlencoded({ extended: false }));
 
+// Simple in-memory log buffer
+export const logBuffer: { timestamp: string; message: string; type: 'info' | 'error' }[] = [];
+
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -30,8 +33,28 @@ export function log(message: string, source = "express") {
     hour12: true,
   });
 
-  console.log(`${formattedTime} [${source}] ${message}`);
+  const logLine = `${formattedTime} [${source}] ${message}`;
+  console.log(logLine);
+
+  logBuffer.push({ timestamp: formattedTime, message: `[${source}] ${message}`, type: 'info' });
+  if (logBuffer.length > 50) logBuffer.shift();
 }
+
+// Override console.error to capture errors too
+const originalConsoleError = console.error;
+console.error = (...args) => {
+  const formattedTime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
+  originalConsoleError(...args);
+  const message = args.map(a => (a instanceof Error ? a.message : String(a))).join(' ');
+  logBuffer.push({ timestamp: formattedTime, message, type: 'error' });
+  if (logBuffer.length > 50) logBuffer.shift();
+};
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -94,7 +117,6 @@ app.use((req, res, next) => {
     {
       port,
       host: "0.0.0.0",
-      reusePort: true,
     },
     () => {
       log(`serving on port ${port}`);
